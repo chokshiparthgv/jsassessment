@@ -20,7 +20,7 @@ function validateString(str) {
             return false;
         }
     }
-    return true;
+    return startingBrackets.length === 0;
 }
 
 console.log(validateString("()[]{}"));
