@@ -1,47 +1,16 @@
-const first = "rte";
+const first = "abc";
 const second = "def";
-const third = "ade";
+var third = "abdecf";
 
-/**
- *
- * @param {String} first
- * @param {String} second
- * @param {String} third
- * @returns {Object} {success: {boolean}, message: {string}}
- */
-function checkShuffle(first, second, third) {
-	let firstlength = [...first].length;
-	let secodnlength = [...second].length;
-	let thridlength = [...third].length;
-
-	if (firstlength + secodnlength !== thridlength) {
-		return {
-			success: false,
-			message: `length of the third element ${thridlength} is shorter then first ${firstlength} and second element ${secodnlength}`
-		};
-	} else {
-		let sortfirst = [...first].sort();
-		let sortsecond = [...second].sort();
-		let sortthird = [...third].sort();
-		let i = 0,
-			j = 0,
-			k = 0;
-		while (k !== thridlength) {
-			if (i < firstlength && sortfirst.includes(sortthird[i])) i++;
-			else if (j < secodnlength && sortsecond.includes(sortthird[i])) j++;
-			else return false;
-			k++;
+function isValid() {
+	for (let index = 0; index < third.length; index++) {
+		if (third[index] === first[index]) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 }
 
-/**
- * @description checks if a string is shuffle or not
- */
-let answer = checkShuffle(first, second, third);
-if (answer.success) {
-	console.log(`${third} is a valid shuffle string`);
-} else {
-	console.log(answer.message);
-}
+let valid = isValid(third);
+console.log(valid);
