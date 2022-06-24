@@ -2,7 +2,6 @@
  * @param {string} inputString
  */
 const question1 = (inputString) => {
-  console.log(inputString.length);
   if (inputString.length > 2000) {
     console.log("Constraint exceeded.");
   } else {
