@@ -79,9 +79,6 @@ const question4 = (ticketArray, personPosition) => {
       if (spreadTicketArray[i]) {
         spreadTicketArray[i]--;
         timeTaken++;
-        if (spreadTicketArray[personPosition] === 0) {
-          break;
-        }
       }
     }
   }
@@ -92,7 +89,7 @@ const question4 = (ticketArray, personPosition) => {
 };
 console.log("");
 console.log("QUESTION 4");
-question4([5, 1, 1, 1], 1);
+question4([5, 1, 1, 1], 0);
 
 /**
  * @param {number} decimalNumber
