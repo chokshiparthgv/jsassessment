@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Shivi Sharma -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h2><u> Binary to Decimal</u></h2>
+<body>
+    <script>
+
+        // JavaScript program to convert binary to decimal
+        
+        // Function to convert binary to decimal
+        // function binaryToDecimal(n)
+        // {
+        //     let num = n;
+        //     let decimal = 0;
+        
+        //     // Initializing base value to 1, i.e 2^0
+        //     let exponent = 1;
+        
+        //     let temp = num;
+        //     while (temp) { // running the loop until temp becomes 0
+        //         let lastDigit = temp % 10; // We are extracting the last digit
+        //         temp = Math.floor(temp / 10); // The last digit is getting dropped
+        
+        //         decimal += lastDigit * exponent; // self-explanatory
+        
+        //         exponent *= 2; // since the digits from right to left have to be multiplied by 2^0, 2^1 , 2^3 ... respectively
+        //     }
+        
+        //     return decimal;
+        // }
+
+        // Functional Programming way: 
+        
+            let num = '111011';
+            let num1 = parseInt(num, 2) // It takes the number and a radix as parameter
+
+            document.write(`The Decimal version of the binary number ${num} is: ${num1}`);
+        
+        </script>
+        
+</body>
+</html>

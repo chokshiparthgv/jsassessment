@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Shivi Sharma -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2><u> Longest substring</u></h2>
+    <script>
+         
+         /* The idea is to traverse the string and for each already 
+         visited character store its last occurrence in a hash table */
+
+        function findLongestSubstring(str)
+        {
+            var i;
+            var n = str.length;
+        
+            var st = 0;                 // starting point of current substring.
+            var currlen;              // length of current substring.
+            var maxlen = 0;          // maximum length substring without repeating characters.
+            var start;              // starting index of maximum length substring.
+            var pos = new Map();    // Hash Map to store last occurrence of each already visited character.
+            
+            pos.set(str[0], 0);   // Last occurrence of first character is index 0;
+        
+            for (var i = 1; i < n; i++) {
+        
+                if (!pos.has(str[i]))    // If this character is not present in hash, then this is first occurrence of this character, store this in hash
+        
+                    pos.set(str[i],i) ;
+        
+                else {
+                    // If this character is present in hash then
+                    // this character has previous occurrence,
+                    // check if that occurrence is before or after
+                    // starting point of current substring.
+                    if (pos.get(str[i]) >= st) {
+        
+                        // find length of current substring and
+                        // update maxlen and start accordingly.
+                        currlen = i - st;
+                        if (maxlen < currlen) {
+                            maxlen = currlen;
+                            start = st;
+                        }
+        
+                        // Next substring will start after the last
+                        // occurrence of current character to avoid
+                        // its repetition.
+                        st = pos.get(str[i]) + 1;
+                    }
+        
+                    // Update last occurrence of
+                    // current character.
+                    pos.set(str[i], i);
+                }
+            }
+        
+            // Compare length of last substring with maxlen and
+            // update maxlen and start accordingly.
+            if (maxlen < i - st) {
+                maxlen = i - st;
+                start = st;
+            }
+        
+            // The required longest substring without
+            // repeating characters is from str[start]
+            // to str[start+maxlen-1].
+            
+            return str.substr(start,maxlen);
+        }
+        
+        var str = "abcdbcadefgf";
+        document.write(findLongestSubstring(str));
+        
+        </script>
+        
+</body>
+</html>

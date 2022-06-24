@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Shivi Sharma -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><u>Tickets</u></h2>
+    <script>
+      var timeTaken = function (tickets, k) {
+        let time = 0; // time starts at '0'th second
+
+        while (tickets[k] !== 0) {
+          for (let i = 0; i < tickets.length; i++) {
+            if (tickets[i] !== 0) {
+              tickets[i] = tickets[i] - 1; // keep subtracting 1 ticket from all the elements in the array, until all ticket[i]==0
+              time++; // time incraeses by 1 every iteration
+            }
+          }
+        }
+        return time;
+      };
+
+      let tickets = [5, 101, 1, 1];
+      let k = 1;
+      document.write(
+        "It took the person: " + timeTaken(tickets, k) + " seconds"
+      );
+    </script>
+  </body>
+</html>
