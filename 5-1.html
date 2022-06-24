@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Shivi Sharma -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2><u> Decimal to Binary</u></h2>
+    <script>
+
+    
+        // function decimalToBinary(n)
+        // {
+            
+        //     let binary = new Array(); // array to store binary number
+
+        //     let i = 0;  // counter for binary array
+        //     while (n > 0) {
+        
+        //         binary[i] = n % 2;      // we store the remainder in binary array
+        //         n = Math.floor(n / 2);  // Keep dividing by 2, and store the remainder until n becomes 0
+        //         i++;
+        //     }
+                
+        //         document.write("The Binary version of the decimal number is: "  + binary.reverse().join("")); //using join to remove space
+        // }
+        
+        //     let n = 59;
+        //     decimalToBinary(n);
+
+
+        // I, later, found a much better way to do this: Power of Functional Programming
+            
+
+
+            let n = 59 
+            let arr = [n]  // store it as an array, since we are using the map() function
+
+            const output = arr.map(x => x.toString(2)); // Arrow function - It seems more understandable
+            document.write(`The Binary version of the decimal number '${n}'  is: ${output}`)
+        
+        </script>
+</body>
+</html>
+
+    

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Shivi Sharma -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><u> Brackets</u></h2>
+    <script>
+      /* So basically, we first map the closing and opening brackets together: 
+    This is the approach: 
+    we interate through the string, and if we see an opening bracket of any kind, 
+    we need to push it to stack, 
+    if we find a closing bracket - we need to check if,
+    there is a corresponding opening bracket on the top of the stack. */
+
+      function output(s) {
+        if (s.length % 2 !== 0) {
+          // this checks if the number of parentheses is correct 
+          //(basically it should be an even number, and if not, return false
+          return false; 
+        }
+
+        const stack = [];
+        const map = {
+          // Create an object that maps the bracket pair
+          "(": ")",
+          "{": "}",
+          "[": "]",
+        };
+
+        for (let i = 0; i < s.length; i++) {
+          if (s[i] === "(" || s[i] === "{" || s[i] === "[") {
+
+            // As soon as the opening bracket is encountered - push in stack.
+            stack.push(s[i]); 
+          } 
+          
+          else if (map[stack.pop()] !== s[i]) {
+            // If an opening brcaket is encounted, it checks in stack, maps it., 
+            //if they not equal => return false
+            return false;
+          }
+
+        }
+        return stack.length ? false : true; // If there is no string left in stack, return true true
+      }
+
+      let s = "{{}}}";
+      document.write(
+        ` The output is of the string ' ${s} ' is :  ${output(s)}!`
+      );
+
+    </script>
+  </body>
+</html>
